@@ -1,6 +1,6 @@
 .group-32 {
   background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.8)),
-    url("/home/sukrit/rtf-metabet/frontend/public/images/boxing_background.jpg");
+    url("../../../public/images/boxing_background.jpg");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
@@ -33,6 +33,10 @@
   justify-content: center;
   align-items: center;
 }
+.no-matches {
+  color: black;
+  background-color: white;
+}
 .rectangle-20 {
   width: 687px;
   height: 196px;
@@ -56,6 +60,7 @@
   text-align: left;
   color: rgba(255, 255, 255, 1);
   text-align: center;
+  text-transform: capitalize;
 }
 .competition {
   /* width: 423px; */
@@ -67,6 +72,7 @@
   line-height: 24.38px;
   text-align: center;
   color: rgba(2, 85, 174, 1);
+  text-transform: capitalize;
 }
 .group-104 {
   /* width: 543px; */

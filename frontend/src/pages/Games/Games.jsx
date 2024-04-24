@@ -25,9 +25,9 @@ const Games = () => {
 
       <Scroller />
 
-      <Cric />
-      <Foot />
-      <Hock />
+      {/* <Cric /> */}
+      {/* <Foot /> */}
+      {/* <Hock /> */}
       <Boxing />
       <Scroller />
       <Footer />
