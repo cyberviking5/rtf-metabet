@@ -61,9 +61,9 @@ const Team = () => {
           </div>
         </div>
         <div className='team-man'>
-          <div className='team-img' id='ay'><img src={mayank} alt="" /></div>
+          <div className='team-img' id='ay'><img src={kudnar} alt="" /></div>
           <div className='tb'>
-            <div className='social-img'><a href="https://www.instagram.com/smayank_12/"><FaInstagram size={40} /></a><a href="https://www.linkedin.com/in/mayank-rawat-8aa02a257"><FaLinkedin size={40} /></a><a href="https://github.com/smayank1214"><FaGithub size={40} /></a></div>
+            <div className='social-img'><a href="https://www.instagram.com/ankit752106/"><FaInstagram size={40} /></a><a href="https://www.linkedin.com/in/ankit-yadav-a1ba4a258/"><FaLinkedin size={40} /></a><a href="https://github.com/ANKITy102"><FaGithub size={40} /></a></div>
             <h1>ANKIT YADAV</h1>
             <span>FRONTEND DEVELOPER</span>
             <p>We as a team are very responsible and clear with our vision. Our mission, purpose, goals and values involved the creation of our vision. </p>
@@ -79,22 +79,13 @@ const Team = () => {
           </div>
         </div>
         <div className='team-man'>
-          <div className='team-img' id='ns'><img src={mayank} alt="" /></div>
+          <div className='team-img' id='ns'><img src={aviral} alt="" /></div>
           <div className='tb'>
             <div className='social-img'><a href="https://www.instagram.com/smayank_12/"><FaInstagram size={40} /></a><a href="https://www.linkedin.com/in/mayank-rawat-8aa02a257"><FaLinkedin size={40} /></a><a href="https://github.com/smayank1214"><FaGithub size={40} /></a></div>
             <h1>NEELESH SAXENA</h1>
             <span>FRONTEND DEVELOPER</span>
             <p>We as a team are very responsible and clear with our vision. Our mission, purpose, goals and values involved the creation of our vision. </p>
           </div>
-          {/* <div className='team-man'>
-            <div className='team-img' id='ns'><img src={mayank} alt="" /></div>
-            <div className='tb'>
-              <div className='social-img'><a href="https://www.instagram.com/neelesh_133?utm_source=qr&igsh=MTBnNmIzZW1leWd4aA=="><FaInstagram size={40} /></a><a href="https://www.linkedin.com/in/neelesh-saxena-738288257?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"><FaLinkedin size={40} /></a><a href="https://github.com/neelesh133"><FaGithub size={40} /></a></div>
-              <h1>NEELESH SAXENA</h1>
-              <span>FRONTEND DEVELOPER</span>
-              <p>We as a team are very responsible and clear with our vision. Our mission, purpose, goals and values involved the creation of our vision. </p>
-            </div>
-          </div> */}
         </div>
       </div>
       <Footer />
