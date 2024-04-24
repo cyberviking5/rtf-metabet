@@ -74,7 +74,7 @@ function Boxing() {
     //         const contract = new ethers.Contract(address1, abi1, signer);
     //         console.log(provider)
     //         console.log(signer)
-    //         const transactionResponse = await contract.mintNFT("https://gateway.pinata.cloud/ipfs/QmfTfVhMGjyEj7jmr8awii3UnPK4BNekXq8trLkG1ZN9WY")
+    //         const transactionResponse = await contract.mintNFT("https://purple-petite-dragonfly-645.mypinata.cloud/ipfs/QmaoqmQWB1AGeqq659Zt7s5GTr7itRtqX2yooyeJoVzxt7")
     //         await listenForTransactionMined(transactionResponse, provider);
     //         console.log(transactionResponse)
     //         const number=await contract.getTokenCounter()
