@@ -1,5 +1,5 @@
-export const address2 = "0x1EC1e12C33e70c4c4A1F225085595bD2e16793e1";
-export const abi2 =[
+export const address2 = "0x9f28712e5Fc9Bba86B974fB484f9D7d148cC1E54";
+export const abi2= [
   {
     inputs: [
       {
@@ -69,7 +69,32 @@ export const abi2 =[
     type: "event"
   },
   {
-    inputs: [],
+    inputs: [
+      {
+        internalType: "address",
+        name: "",
+        type: "address"
+      }
+    ],
+    name: "BetOn",
+    outputs: [
+      {
+        internalType: "uint256",
+        name: "",
+        type: "uint256"
+      }
+    ],
+    stateMutability: "view",
+    type: "function"
+  },
+  {
+    inputs: [
+      {
+        internalType: "uint256",
+        name: "Bet_On",
+        type: "uint256"
+      }
+    ],
     name: "enter",
     outputs: [],
     stateMutability: "payable",
@@ -185,6 +210,19 @@ export const abi2 =[
     type: "function"
   },
   {
+    inputs: [
+      {
+        internalType: "uint256",
+        name: "win",
+        type: "uint256"
+      }
+    ],
+    name: "setWinner",
+    outputs: [],
+    stateMutability: "nonpayable",
+    type: "function"
+  },
+  {
     inputs: [],
     name: "settleTeamResultLoss",
     outputs: [],
@@ -195,7 +233,7 @@ export const abi2 =[
     inputs: [],
     name: "settleTeamResultWon",
     outputs: [],
-    stateMutability: "nonpayable",
+    stateMutability: "payable",
     type: "function"
   },
   {
@@ -219,13 +257,23 @@ export const abi2 =[
   },
   {
     inputs: [],
-    name: "withdraw",
-    outputs: [],
-    stateMutability: "nonpayable",
+    name: "winner",
+    outputs: [
+      {
+        internalType: "uint256",
+        name: "",
+        type: "uint256"
+      }
+    ],
+    stateMutability: "view",
     type: "function"
   },
   {
+    inputs: [],
+    name: "withdraw",
+    outputs: [],
     stateMutability: "payable",
-    type: "receive"
+    type: "function"
   }
 ]
+  

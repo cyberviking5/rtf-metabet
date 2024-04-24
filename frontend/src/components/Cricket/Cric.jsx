@@ -1,13 +1,13 @@
-import React , {useEffect , useState} from 'react'
-import './Cric.css'
-import { fetchFromAPI } from '../../fetchFromAPI';
-import { address1, abi1 } from "../../contracts_abi_address/NFT"
-import { address, abi } from "../../contracts_abi_address/SimpleFlashLoan"
-import {address2,abi2} from '../../contracts_abi_address/Gamble'
-import { ethers, providers } from "ethers";
+import { ethers } from "ethers";
+import React, { useEffect, useState } from 'react';
 import { toast } from 'react-toastify';
-import Modal from './Modal';
 import 'react-toastify/dist/ReactToastify.css';
+import { abi2, address2 } from '../../contracts_abi_address/Gamble';
+import { abi1, address1 } from "../../contracts_abi_address/NFT";
+import { abi, address } from "../../contracts_abi_address/SimpleFlashLoan";
+import { fetchFromAPI } from '../../fetchFromAPI';
+import './Cric.css';
+import Modal from './Modal';
 
 const Cric = () => {
   const [num,setnum] = useState('');
@@ -94,7 +94,7 @@ const Cric = () => {
             const contract = new ethers.Contract(address1, abi1, signer);
             console.log(provider)
             console.log(signer)
-            const transactionResponse = await contract.mintNFT("https://gateway.pinata.cloud/ipfs/QmfTfVhMGjyEj7jmr8awii3UnPK4BNekXq8trLkG1ZN9WY")
+            const transactionResponse = await contract.mintNFT("https://purple-petite-dragonfly-645.mypinata.cloud/ipfs/QmaoqmQWB1AGeqq659Zt7s5GTr7itRtqX2yooyeJoVzxt7")
             await listenForTransactionMined(transactionResponse, provider);
             console.log(transactionResponse)
             const number=await contract.getTokenCounter()

@@ -1,3 +1,10 @@
+.container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
 .team-head{
     margin-top: 120px;
     height: 40vh;
@@ -36,24 +43,31 @@
 }
 
 .team-card{
-    height: 90vh;
-    width: 100%;
-    padding: 10px 50px;
+    position: relative;
+    /* height: 90vh; */
+    width: 90%;
+    /* padding: 10px 50px; */
     display: flex;
     flex-direction: row;
+    flex-wrap: wrap;
     align-items: center;
     justify-content: space-evenly;
     margin-top: 100px;
-    margin-bottom:180px;
+    margin-bottom:150px;
+    /* margin-left: 50px; */
+    /* margin-right: 100px; */
+    /* column-gap:1%; */
+    /* row-gap: 30%; */
+
 }
 .team-man{
-    /* padding: 20px 0; */
+    padding: 20px 0;
     display: flex;
     /* gap:30px; */
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 25%;
+    width: 27%;
     border-radius: 30px;
     position: relative;
 }
@@ -65,6 +79,15 @@
 }
 #mr{
     background-color: #0255AE;
+}
+#ay{
+    background-color: #A54601;
+}
+#sm{
+    background-color: #CA0765;
+}
+#ns{
+    background-color: #4EAE02;
 }
 .tb{
     background-color: white;
