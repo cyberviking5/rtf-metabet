@@ -74,7 +74,7 @@ requestAnimationFrame(raf)
                  <div className='kuch'><img src={landinglogo} alt=""/><p>WAY WITH US</p></div>
               </div>
               <div className='hero-buttons'>
-                <a href='#second' className='buttonss' onClick={(()=>lenis.scrollTo('#second'))}><button>GAMES</button></a>
+                <a href='#second' className='buttonss' onClick={(()=>lenis.scrollTo('#second'))}><button>BOXING</button></a>
                 <a href='#fourth' className='buttonss' onClick={(()=>lenis.scrollTo('#fourth'))}><button>TECH STACK</button></a>
               </div>
             </div>

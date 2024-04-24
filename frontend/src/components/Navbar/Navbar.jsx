@@ -48,7 +48,7 @@ const Navbar = () => {
           <div className="nav-part2">
             <div className="nav-part2-main1">
               <Link to="/games" className="nav-games">
-                GAMES
+                BOXING
               </Link>
               <Link to="/team" className="nav-team">
                 OUR TEAM

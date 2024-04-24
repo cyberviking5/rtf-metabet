@@ -80,14 +80,14 @@ const s2 = () =>{
                 <div className="menu-card-list">
                     <a href="#first" onClick={() => { handleNav();s1() }}>ABOUT US</a>
                   <Link to="/team">OUR TEAM</Link>
-                  <Link to="/games">GAMES</Link>
+                  <Link to="/games">BOXING</Link>
                   <a href="#fourth" onClick={() => { handleNav(); s2()}}>TECH STACK</a>
                 </div>
               ) : (
                 <div className="menu-card-list">
                   <Link to='/'>HOME</Link>
                   <Link to="/team">OUR TEAM</Link>
-                  <Link to="/games">GAMES</Link>
+                  <Link to="/games">BOXING</Link>
                   {/* <Link to='/'>ABOUT US</Link> */}
                 </div>
               )}
@@ -95,9 +95,9 @@ const s2 = () =>{
           </div>
 
           <div className="opened-nav-bt">
-            <div>POWERED BY OVERENGINEERED</div>
+            <div>POWERED BY RTFIGHT</div>
             <div>METABOYS</div>
-            <div>METABET © 2023 </div>
+            <div>METABET © 2024 </div>
           </div>
         </div>
       </div>
