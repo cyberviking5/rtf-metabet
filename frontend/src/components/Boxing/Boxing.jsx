@@ -1,40 +1,5 @@
-// away_team
-// : 
-// "Christine Gillespie"
-// bookie
-// : 
-// "bcgame"
-// competition
-// : 
-// "matchups"
-// country
-// : 
-// "international"
-// date
-// : 
-// "2024-04-24"
-// home_team
-// : 
-// "Shanell Dargan"
-// match
-// : 
-// "Dargan, Shanell vs Gillespie, Christine"
-// match_status
-// : 
-// "finished"
-// match_timestamp
-// : 
-// 1713945600
-// matchid
-// : 
-// "id1800149645079"
-// sport
-// : 
-// "boxing"
-// time
-// : 
-// "08:00:00"
 import React, { useEffect, useState } from 'react';
+import CircularProgress from '@mui/material/CircularProgress';
 import axios from 'axios';
 import './Boxing.css';
 
@@ -53,18 +18,20 @@ function Boxing() {
     const [competitions, setCompetitions] = useState([]);
     const [selectedCompetition, setSelectedCompetition] = useState(null);
     const [matches, setMatches] = useState([]);
+    const [isLoading, setIsLoading] = useState(false);
 
     useEffect(() => {
+        setIsLoading(true);
         const fetchCompetitions = async () => {
             try {
                 const response = await axios.request(options1);
                 setCompetitions(response.data);
-                console.log(response.data);
+                // console.log(response.data);
                 if (response.data) {
                     // console.log("Here");
                     // Automatically select the first competition
                     setSelectedCompetition(response.data[0]);
-                    console.log(response.data);
+                    // console.log(response.data);
                     fetchMatches(response.data[0].competition, response.data[0].country);
                 }
             } catch (error) {
@@ -92,12 +59,13 @@ function Boxing() {
         };
         try {
             const response = await axios.request(options2);
-            console.log(response.data)
+            // console.log(response.data)
             const matchesArray = Object.keys(response.data).map(key => response.data[key]);
             const filteredMatches = matchesArray.filter(match => match.match_status === 'pre-game');
             const firstMatch = filteredMatches.length > 0 ? [filteredMatches[0]] : [];
             setMatches(firstMatch);
-            console.log(firstMatch);
+            setIsLoading(false);
+            // console.log(firstMatch);
         } catch (error) {
             console.error('Error fetching matches:', error);
         }
@@ -115,9 +83,10 @@ function Boxing() {
 
 
     return (
-        <div>
-            {matches.length > 0 ? (
-                <div className="group-32">
+        <div className='apex'>
+            <div className="group-32">
+                {isLoading && <CircularProgress className='circle' />}
+                {matches.length > 0 ? (
                     <div className="content">
                         <span className="boxing">BOXING</span>
                         <div className="rectangle-20">
@@ -161,10 +130,10 @@ function Boxing() {
                             </div>
                         </div>
                     </div>
-                </div>
-            ) : (
-                <div className='no-matches'>No matches</div>
-            )}
+                ) : (
+                    <span>There are no matches currently!</span>
+                )}
+            </div>
             <div className='group-45'>
                 <div className='left'>
                     <span className='rules'>RULES</span>

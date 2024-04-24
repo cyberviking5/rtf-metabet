@@ -12,11 +12,11 @@ import CustomEase from 'gsap/CustomEase'
 import Rating from '../../components/Rating/Rating';
 import Tech from '../../components/Tech/Tech';
 import Footer from '../../components/Footer/Footer';
-import {useState , useEffect} from 'react'
+import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom';
 import Lenis from '@studio-freight/lenis'
-import {motion} from 'framer-motion'
-import landinglogo from '../../assets/landing_logo.png'
+import { motion } from 'framer-motion'
+import landinglogo from '../../assets/rtf3.png'
 
 
 const Home = () => {
@@ -49,19 +49,19 @@ const Home = () => {
   // });
   const lenis = new Lenis()
   lenis.on('scroll', (e) => {
-  // console.log(e)
-})
-function raf(time) {
-  lenis.raf(time)
-  requestAnimationFrame(raf)
-}
+    // console.log(e)
+  })
+  function raf(time) {
+    lenis.raf(time)
+    requestAnimationFrame(raf)
+  }
 
-requestAnimationFrame(raf)
+  requestAnimationFrame(raf)
   return (
-    <motion.div 
-      initial={{opacity: 0}}
-      animate={{opacity: 1}}
-      exit={{opacity:0}} 
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
     >
       <div className="home  h-[100vh]">
         <Navbar />
@@ -69,12 +69,12 @@ requestAnimationFrame(raf)
           <div className="main">
             <div className="hero">
               <div className="hero-heading">
-                <p>NOW BET</p> 
+                <p>NOW BET</p>
                 <p>ONLINE IN A MORE SECURE </p>
-                 <div className='kuch'><img src={landinglogo} alt=""/><p>WAY WITH US</p></div>
+                <div className='kuch'><img src={landinglogo} alt="" /><p>WAY WITH US</p></div>
               </div>
               <div className='hero-buttons'>
-                <a href='#second' className='buttonss' onClick={(()=>lenis.scrollTo('#second'))}><button>GAMES</button></a>
+                <a href='#second' className='buttonss' onClick={(()=>lenis.scrollTo('#second'))}><button>BOXING</button></a>
                 <a href='#fourth' className='buttonss' onClick={(()=>lenis.scrollTo('#fourth'))}><button>TECH STACK</button></a>
               </div>
             </div>
@@ -119,28 +119,28 @@ requestAnimationFrame(raf)
         
         {/* <div id="second-tab">
           <Link to='/games'>
-          <div className="elem">
-            <img src={crickettt} alt="" />
-            <h1>CRICKET</h1>
-          </div>
+            <div className="elem">
+              <img src={crickettt} alt="" />
+              <h1>CRICKET</h1>
+            </div>
           </Link>
           <Link to='/games'>
-          <div className="elem">
-            <img src={footballl} alt="" />
-            <h1>FOOTBALL</h1>
-          </div>
+            <div className="elem">
+              <img src={footballl} alt="" />
+              <h1>FOOTBALL</h1>
+            </div>
           </Link>
           <Link to='/games'>
-          <div className="elem ">
-            <img src={hockeyyy} alt="" />
-            <h1>HOCKEY</h1>
-          </div>
+            <div className="elem ">
+              <img src={hockeyyy} alt="" />
+              <h1>HOCKEY</h1>
+            </div>
           </Link>
           <Link to='/games'>
-          <div className="elem elemlast">
-            <img src={tennisss} alt="" />
-            <h1>TENNIS</h1>
-          </div>
+            <div className="elem elemlast">
+              <img src={tennisss} alt="" />
+              <h1>TENNIS</h1>
+            </div>
           </Link>
         </div> */}
       </div>
@@ -151,10 +151,10 @@ requestAnimationFrame(raf)
 
       <div className="panel" id="third">
         <div className='third-head'>
-            <h1>REVIEWS & <br /><span>RATINGS</span></h1>
+          <h1>REVIEWS & <br /><span>RATINGS</span></h1>
         </div>
         <div className='third-bot'>
-           <Rating/>
+          <Rating />
         </div>
       </div>
 
@@ -164,15 +164,15 @@ requestAnimationFrame(raf)
 
       <div className="panel" id="fourth">
         <div className='fourth-head'>
-            <h1 className='fourth-heading'>TECH <span>STACK</span></h1>
-            <p className='fourth-head-p'>TO MAKE THIS PROJECT POSSIBLE WE HAVE USED A NUMBER OF TECHNOLOGIES SO THAT WE CAN GIVE THE BEST PROJECT POSSIBLE .</p>
+          <h1 className='fourth-heading'>TECH <span>STACK</span></h1>
+          <p className='fourth-head-p'>TO MAKE THIS PROJECT POSSIBLE WE HAVE USED A NUMBER OF TECHNOLOGIES SO THAT WE CAN GIVE THE BEST PROJECT POSSIBLE .</p>
         </div>
         <div>
-          <Tech/>
+          <Tech />
         </div>
       </div>
 
-      <Footer/>
+      <Footer />
     </motion.div>
   );
 }
