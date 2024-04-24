@@ -1,6 +1,6 @@
 .group-32 {
   background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.8)),
-    url("/home/sukrit/rtf-metabet/frontend/public/images/boxing_background.jpg");
+    url("../../../public/images/boxing_background.jpg");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
