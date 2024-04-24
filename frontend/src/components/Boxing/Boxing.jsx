@@ -75,7 +75,7 @@ function Boxing() {
 
     const handlePlayerSelect = (player) => {
         setSelectedPlayer(player);
-    };
+    };A
 
 
     const player1Selected = selectedPlayer === 'player1';
