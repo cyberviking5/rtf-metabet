@@ -21,14 +21,14 @@ module.exports = {
       chainId: 31337,
       // gasPrice: 130000000000,
     },
-    bnc: {
+    sepolia: {
       url: SEPOLIA_RPC_URL,
       accounts: [PRIVATE_KEY],
-      chainId: 97,
+      chainId: 11155111,
       blockConfirmations: 5,
     },
   },
-  solidity: {compilers:[{version:"0.8.18"},{version:"0.6.6"},{version:"0.8.19"}]},
+  solidity: {compilers:[{version:"0.8.18"},{version:"0.6.6"},{version:"0.8.10"}]},
   etherscan: {
     apiKey: ETHERSCAN_API_KEY,
     // customChains: [], // uncomment this line if you are getting a TypeError: customChains is not iterable
