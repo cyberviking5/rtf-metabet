@@ -9,8 +9,7 @@ contract Gamble {
     struct User {
         bool hasEntered;
     }
-
-
+    
     mapping(address => User) public users;
     mapping(address => uint256) public gamblersToAmountBet;
     mapping(address=>uint256) public BetOn;
@@ -38,6 +37,32 @@ contract Gamble {
         gamblers.push(msg.sender);
         users[msg.sender].hasEntered = true;
         emit UserEntered(msg.sender, msg.value);
+    }
+    function settleTeamResultWon() public payable {
+                 require(users[msg.sender].hasEntered, "User has not entered");
+                 require(BetOn[msg.sender]==1 || BetOn[msg.sender]==2 , "Match in Progress");
+                 uint256 amount=0;
+                 for(uint256 i=0;i<gamblers.length;i++)
+                 {
+                    if(BetOn[gamblers[i]]!=winner)
+                    {
+                        amount+=(gamblersToAmountBet[gamblers[i]]);
+                    }
+                 }
+                 uint256 winnings = gamblersToAmountBet[msg.sender] +
+                 (amount / gamblers.length);
+                 payable(msg.sender).transfer(winnings-gamblersToAmountBet[msg.sender]);
+                 users[msg.sender].hasEntered=false;
+                 emit UserWon(msg.sender, winnings);
+       
+    }
+
+    function settleTeamResultLoss() public {
+             require(users[msg.sender].hasEntered, "User has not entered");
+             require(BetOn[msg.sender]==1 || BetOn[msg.sender]==2 , "Match in Progress");
+             uint256 lossAmount = entryFee;
+             users[msg.sender].hasEntered=false;
+             emit UserLost(msg.sender, lossAmount);
     }
 
     function withdraw() public onlyOwner payable  {
