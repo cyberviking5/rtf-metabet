@@ -3,11 +3,11 @@ import Navbar from '../../components/Navbar/Navbar'
 import './Home.css'
 import Scroller from '../../components/Scroller/Scroller';
 import paisa from '../../assets/paisa.mp4'
-import hockeyyy from '../../assets/hockeyyy.jpg'
-import crickettt from '../../assets/crickettt.jpg'
-import footballl from '../../assets/footballl.jpg'
-import tennisss from '../../assets/tennisss.jpg'
-import { gsap } from "gsap";
+// import hockeyyy from '../../assets/hockeyyy.jpg'
+// import crickettt from '../../assets/crickettt.jpg'
+// import footballl from '../../assets/footballl.jpg'
+// import tennisss from '../../assets/tennisss.jpg'
+import {gsap} from "gsap";
 import CustomEase from 'gsap/CustomEase'
 import Rating from '../../components/Rating/Rating';
 import Tech from '../../components/Tech/Tech';
@@ -22,31 +22,31 @@ import landinglogo from '../../assets/rtf3.png'
 const Home = () => {
 
 
-  document.querySelectorAll(".elem").forEach(function (elem) {
-    var rotate = 0;
-    var diffrot = 0;
-
-    elem.addEventListener("mouseleave", function (dets) {
-      gsap.to(elem.querySelector("img"), {
-        opacity: 0,
-        ease: 'gsap.Power3.easeOut',
-        duration: 0.5,
-      });
-    });
-
-    elem.addEventListener("mousemove", function (dets) {
-      var diff = dets.clientY - elem.getBoundingClientRect().top;
-      diffrot = dets.clientX - rotate;
-      rotate = dets.clientX;
-      gsap.to(elem.querySelector("img"), {
-        opacity: 1,
-        ease: 'gsap.Power3.easeOut',
-        top: diff,
-        left: dets.clientX,
-        rotate: gsap.utils.clamp(-20, 20, diffrot * 0.5),
-      });
-    });
-  });
+  // document.querySelectorAll(".elem").forEach(function (elem) {
+  //   var rotate = 0;
+  //   var diffrot = 0;
+  
+  //   elem.addEventListener("mouseleave", function (dets) {
+  //     gsap.to(elem.querySelector("img"), {
+  //       opacity: 0,
+  //       ease:  'gsap.Power3.easeOut',
+  //       duration: 0.5,
+  //     });
+  //   });
+  
+  //   elem.addEventListener("mousemove", function (dets) {
+  //     var diff = dets.clientY - elem.getBoundingClientRect().top;
+  //     diffrot = dets.clientX - rotate;
+  //     rotate = dets.clientX;
+  //     gsap.to(elem.querySelector("img"), {
+  //       opacity: 1,
+  //       ease:  'gsap.Power3.easeOut',
+  //       top: diff,
+  //       left: dets.clientX,
+  //       rotate: gsap.utils.clamp(-20, 20, diffrot * 0.5),
+  //     });
+  //   });
+  // });
   const lenis = new Lenis()
   lenis.on('scroll', (e) => {
     // console.log(e)
@@ -74,7 +74,7 @@ const Home = () => {
                 <div className='kuch'><img src={landinglogo} alt="" /><p>WAY WITH US</p></div>
               </div>
               <div className='hero-buttons'>
-                <a href='#second' className='buttonss' onClick={(()=>lenis.scrollTo('#second'))}><button>GAMES</button></a>
+                <a href='#second' className='buttonss' onClick={(()=>lenis.scrollTo('#second'))}><button>BOXING</button></a>
                 <a href='#fourth' className='buttonss' onClick={(()=>lenis.scrollTo('#fourth'))}><button>TECH STACK</button></a>
               </div>
             </div>
@@ -99,7 +99,7 @@ const Home = () => {
             <p className="firstchota">
               Our platform harnesses the potential of blockchain to bring you an
               unparalleled level of trust and excitement. We're not just a
-              betting website; we're a community-driven ecosystem that believes
+              betting website, we're a community-driven ecosystem that believes
               in fairness, innovation, and fun.
             </p>
           </div>
@@ -116,8 +116,8 @@ const Home = () => {
           <div className="sec-feat">FEATURED <span>GAMES</span></div>
           <div className="sec-fea-p">FAVORITES GAMES ON OUR PLATFORM</div>
         </div>
-
-        <div id="second-tab">
+        
+        {/* <div id="second-tab">
           <Link to='/games'>
             <div className="elem">
               <img src={crickettt} alt="" />
@@ -142,7 +142,7 @@ const Home = () => {
               <h1>TENNIS</h1>
             </div>
           </Link>
-        </div>
+        </div> */}
       </div>
 
       <Scroller />
