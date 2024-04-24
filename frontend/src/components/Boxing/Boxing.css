@@ -23,11 +23,11 @@
   align-items: center;
 }
 .boxing {
-  height: 231px;
+  /* height: 231px; */
   font-family: "Bebas Neue", sans-serif;
   font-size: 182px;
   font-weight: 700;
-  line-height: 230.96px;
+  line-height: 200.96px;
   /* text-align: left; */
   text-align: center;
   justify-content: center;
@@ -135,15 +135,16 @@
   width: 249px;
   height: 24px;
   font-family: Montserrat;
-  font-size: 20px;
+  font-size: 16px;
   font-weight: 400;
-  line-height: 24.38px;
+  line-height: 32px;
   text-align: center;
   color: rgba(255, 255, 255, 1);
+  font-weight: 600;
 }
 .rectangle-25 {
   width: 326px;
-  height: 101px;
+  height: 85px;
   border-radius: 18px 18px 18px 18px;
   border: 1px 1px 1px 1px;
   opacity: 0px;
@@ -176,6 +177,7 @@
   justify-content: space-around;
   align-items: center;
   text-align: center;
+  gap: 10px;
 }
 .frame-6 {
   width: Hug (106px) px;
@@ -184,6 +186,7 @@
   border-radius: 8px 8px 8px 8px;
   opacity: 0px;
   background: rgba(231, 208, 3, 1);
+  font-weight: 900;
   /* padding: 10px; */
   /* border-radius: 10px; */
 }
@@ -201,6 +204,7 @@
   justify-content: space-around;
   align-items: center;
   text-align: center;
+  gap: 10px;
 }
 .frame-7 {
   width: Hug (110px) px;
@@ -208,6 +212,7 @@
   padding: 10px 13px 10px 13px;
   border-radius: 8px 8px 8px 8px;
   background: rgba(109, 2, 174, 1);
+  font-weight: 900;
 }
 .selected {
   background: rgba(2, 85, 174, 0.5);
@@ -232,6 +237,7 @@
   justify-content: space-around;
   align-items: center;
   text-align: center;
+  gap: 10px;
 }
 .text_amount {
   width: Hug (246px) px;
@@ -244,6 +250,7 @@
   font-size: 14px;
   font-weight: 400;
   text-align: center;
+  color: rgba(0, 0, 0, 1);
 }
 
 .submit {
@@ -262,4 +269,109 @@
 
 .submit:hover {
   background-color: #0056b3;
+}
+.group-45 {
+  /* width: 903px; */
+  height: 100px;
+  border-radius: 13px 13px 13px 13px;
+  opacity: 0px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* text-align: center; */
+}
+.left {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  /* align-items: center; */
+}
+.rules {
+  width: 112px;
+  height: 39px;
+  font-family: Montserrat;
+  font-size: 30px;
+  font-weight: 400;
+  line-height: 36.69px;
+  text-align: center;
+  color: rgba(255, 255, 255, 1);
+}
+.group-44 {
+  color: white;
+}
+.list {
+  list-style-type: disc;
+  color: rgba(255, 255, 255, 1);
+  width: 568px;
+  height: 151px;
+  gap: 0px;
+  opacity: 0px;
+  font-family: Montserrat;
+  font-size: 22px;
+  font-weight: 400;
+  line-height: 35px;
+  text-align: left;
+}
+.right {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.need-loan {
+  width: 201px;
+  height: 39px;
+  gap: 0px;
+  opacity: 0px;
+  color: rgba(255, 255, 255, 1);
+  font-family: Montserrat;
+  font-size: 30px;
+  font-weight: 400;
+  line-height: 36.69px;
+  text-align: left;
+}
+.loan {
+  width: 247px;
+  height: 35px;
+  opacity: 0px;
+  font-family: Montserrat;
+  font-size: 17px;
+  font-weight: 400;
+  line-height: 35px;
+  text-align: center;
+  color: rgba(255, 255, 255, 1);
+}
+.loan_amount {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  gap: 10px;
+}
+.group-322 {
+  width: 213.75px;
+  height: 38.25px;
+  opacity: 0px;
+  font-family: Montserrat;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 55px;
+  text-align: center;
+  color: rgba(0, 0, 0, 1);
+}
+.group-33 {
+  width: 115px;
+  height: 41.57px;
+  border-radius: 13px 13px 13px 13px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0px;
+  font-family: Montserrat;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 55px;
+  text-align: center;
+  color: rgba(255, 255, 255, 1);
+  background: rgba(2, 85, 174, 1);
 }

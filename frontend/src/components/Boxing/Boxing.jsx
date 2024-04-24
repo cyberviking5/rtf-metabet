@@ -1,19 +1,14 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import './Boxing.css';
 
 
-const func = async () => {
-
-
+const findCompetitions = async () => {
     const options = {
         method: 'GET',
-        url: `https://bc-game1.p.rapidapi.com/matches_bcgame`,
+        url: `https://bc-game1.p.rapidapi.com/competitions_bcgame`,
         params: {
-            sport: 'boxing',
-            country: 'international',
-            competition: 'matchups',
-            match_urls: 'false'
+            sport: 'boxing'
         },
         headers: {
             'X-RapidAPI-Key': process.env.REACT_APP_API_KEY,
@@ -24,13 +19,17 @@ const func = async () => {
 
     try {
         const response = await axios.request(options);
-        console.log(response.data);
+        console.log(response.data[0].competition);
     } catch (error) {
         console.error(error);
     }
 }
 function Boxing() {
     // func();
+    useEffect(() => {
+        console.log("OK");
+        findCompetitions();
+    }, []);
     const [selectedPlayer, setSelectedPlayer] = useState();
 
 
@@ -44,7 +43,7 @@ function Boxing() {
 
 
     return (
-        <div className="App">
+        <div>
             <div className="group-32">
                 <div className="content">
                     <span className="boxing">
@@ -105,6 +104,26 @@ function Boxing() {
                             <input type="text" placeholder='Enter the amount' className='text_amount'></input>
                             <button className='submit'>Submit</button>
                         </div>
+                    </div>
+                </div>
+            </div>
+            <div className='group-45'>
+                <div className='left'>
+                    <span className='rules'>RULES</span>
+                    <div className='group-44'>
+                        <ul className='list'>
+                            <li>WIN:2x the amount you pay</li>
+                            <li>LOSE:No return</li>
+                            <li>MINIMUM AMOUNT to put : 100ETH</li>
+                        </ul>
+                    </div>
+                </div>
+                <div className='right'>
+                    <span className='need-loan'>Need Loan ?</span>
+                    <span className='loan'>Now get the flash loan instantly</span>
+                    <div className='loan_amount'>
+                        <input type='text' className='group-322' placeholder='ENTER THE AMOUNT'></input>
+                        <button className='group-33'>GET LOAN</button>
                     </div>
                 </div>
             </div>
