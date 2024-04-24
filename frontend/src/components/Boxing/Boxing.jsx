@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import CircularProgress from '@mui/material/CircularProgress';
 import axios from 'axios';
 import './Boxing.css';
 import { address1, abi1 } from "../../contracts_abi_address/NFT"
@@ -25,18 +26,20 @@ function Boxing() {
     const [matches, setMatches] = useState([]);
     const [num1,setnum1] = useState('');
     const [sub,setsub]=useState(true);
+    const [isLoading, setIsLoading] = useState(false);
 
     useEffect(() => {
+        setIsLoading(true);
         const fetchCompetitions = async () => {
             try {
                 const response = await axios.request(options1);
                 setCompetitions(response.data);
-                console.log(response.data);
+                // console.log(response.data);
                 if (response.data) {
                     // console.log("Here");
                     // Automatically select the first competition
                     setSelectedCompetition(response.data[0]);
-                    console.log(response.data);
+                    // console.log(response.data);
                     fetchMatches(response.data[0].competition, response.data[0].country);
                 }
             } catch (error) {
@@ -115,14 +118,14 @@ function Boxing() {
               num1
             );
             await listenForTransactionMined(transactionResponse, provider);
-            // toast.success("Loan processed")
+            toast.success("Loan processed")
             console.log("Done");
           }else{
             console.log("error")
-            // toast("please install metamask")
+            toast("please install metamask")
           }
         } catch (e) {
-        //   toast.warning("Enter money in natural number");
+          toast.warning("Enter money in natural number");
           console.log(e);
         }
       }
@@ -144,12 +147,13 @@ function Boxing() {
         };
         try {
             const response = await axios.request(options2);
-            console.log(response.data)
+            // console.log(response.data)
             const matchesArray = Object.keys(response.data).map(key => response.data[key]);
             const filteredMatches = matchesArray.filter(match => match.match_status === 'pre-game');
             const firstMatch = filteredMatches.length > 0 ? [filteredMatches[0]] : [];
             setMatches(firstMatch);
-            console.log(firstMatch);
+            setIsLoading(false);
+            // console.log(firstMatch);
         } catch (error) {
             console.error('Error fetching matches:', error);
         }
@@ -167,9 +171,10 @@ function Boxing() {
 
 
     return (
-        <div>
-            {matches.length > 0 ? (
-                <div className="group-32">
+        <div className='apex'>
+            <div className="group-32">
+                {isLoading && <CircularProgress className='circle' />}
+                {matches.length > 0 ? (
                     <div className="content">
                         <span className="boxing">BOXING</span>
                         <div className="rectangle-20">
@@ -208,15 +213,15 @@ function Boxing() {
                                 </div>
                             </div>
                             <div className='group-98'>
-                                <input type="text" placeholder='Enter the amount' className='text_amount' onChange={(e)=>{setnum(e.target.value)}}></input>
-                                <button className='submit' onClick={enter}>Submit</button>
+                                <input type="text" placeholder='Enter the amount' className='text_amount'></input>
+                                <button className='submit'>Submit</button>
                             </div>
                         </div>
                     </div>
-                </div>
-            ) : (
-                <div className='no-matches'>No matches</div>
-            )}
+                ) : (
+                    <span>There are no matches currently!</span>
+                )}
+            </div>
             <div className='group-45'>
                 <div className='left'>
                     <span className='rules'>RULES</span>
