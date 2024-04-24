@@ -7,7 +7,7 @@ import paisa from '../../assets/paisa.mp4'
 // import crickettt from '../../assets/crickettt.jpg'
 // import footballl from '../../assets/footballl.jpg'
 // import tennisss from '../../assets/tennisss.jpg'
-import {gsap} from "gsap";
+import { gsap } from "gsap";
 import CustomEase from 'gsap/CustomEase'
 import Rating from '../../components/Rating/Rating';
 import Tech from '../../components/Tech/Tech';
@@ -16,7 +16,8 @@ import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom';
 import Lenis from '@studio-freight/lenis'
 import { motion } from 'framer-motion'
-import landinglogo from '../../assets/rtf3.png'
+import landinglogo from '../../assets/rtf3.png';
+import arrow from "../../assets/arrow_outward.png"
 
 
 const Home = () => {
@@ -25,7 +26,7 @@ const Home = () => {
   // document.querySelectorAll(".elem").forEach(function (elem) {
   //   var rotate = 0;
   //   var diffrot = 0;
-  
+
   //   elem.addEventListener("mouseleave", function (dets) {
   //     gsap.to(elem.querySelector("img"), {
   //       opacity: 0,
@@ -33,7 +34,7 @@ const Home = () => {
   //       duration: 0.5,
   //     });
   //   });
-  
+
   //   elem.addEventListener("mousemove", function (dets) {
   //     var diff = dets.clientY - elem.getBoundingClientRect().top;
   //     diffrot = dets.clientX - rotate;
@@ -74,8 +75,8 @@ const Home = () => {
                 <div className='kuch'><img src={landinglogo} alt="" /><p>WAY WITH US</p></div>
               </div>
               <div className='hero-buttons'>
-                <a href='#second' className='buttonss' onClick={(()=>lenis.scrollTo('#second'))}><button>BOXING</button></a>
-                <a href='#fourth' className='buttonss' onClick={(()=>lenis.scrollTo('#fourth'))}><button>TECH STACK</button></a>
+                <a href='#second' className='buttonss' onClick={(() => lenis.scrollTo('#second'))}><button>BOXING</button></a>
+                <a href='#fourth' className='buttonss' onClick={(() => lenis.scrollTo('#fourth'))}><button>TECH STACK</button></a>
               </div>
             </div>
             <div className="main-lastline">
@@ -113,36 +114,12 @@ const Home = () => {
 
       <div className="panel" id="second">
         <div className="sec-head">
-          <div className="sec-feat">FEATURED <span>GAMES</span></div>
-          <div className="sec-fea-p">FAVORITES GAMES ON OUR PLATFORM</div>
+          <Link to="/games" className='link_to'>
+            <div className="sec-feat">BOX<span>ING</span></div>
+            <img src={arrow} className='arrow'></img>
+          </Link>
+          <div className="sec-fea-p">We envision a world where users can participate in secure, transparent and rewarding fantasy betting activities. Our platform harnesses the potential of blockchain to bring you an unparalleled level of trust and excitement. </div>
         </div>
-        
-        {/* <div id="second-tab">
-          <Link to='/games'>
-            <div className="elem">
-              <img src={crickettt} alt="" />
-              <h1>CRICKET</h1>
-            </div>
-          </Link>
-          <Link to='/games'>
-            <div className="elem">
-              <img src={footballl} alt="" />
-              <h1>FOOTBALL</h1>
-            </div>
-          </Link>
-          <Link to='/games'>
-            <div className="elem ">
-              <img src={hockeyyy} alt="" />
-              <h1>HOCKEY</h1>
-            </div>
-          </Link>
-          <Link to='/games'>
-            <div className="elem elemlast">
-              <img src={tennisss} alt="" />
-              <h1>TENNIS</h1>
-            </div>
-          </Link>
-        </div> */}
       </div>
 
       <Scroller />

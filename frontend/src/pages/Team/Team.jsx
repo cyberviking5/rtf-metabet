@@ -94,15 +94,9 @@ const Team = () => {
               <span>FRONTEND DEVELOPER</span>
               <p>We as a team are very responsible and clear with our vision. Our mission, purpose, goals and values involved the creation of our vision. </p>
             </div>
-<<<<<<< HEAD
           </div> */}
         </div>
       </div>
-=======
-          </div>
-       </div>
-</div>
->>>>>>> 15843a43a3a22309a76864380a5195724e88dea3
       <Footer />
     </motion.div>
   )
