@@ -1,9 +1,12 @@
-.container{
+/* .container{
+    margin: 0;
+    padding: 0;
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
-}
+    width: 100%;
+} */
 
 .team-head{
     margin-top: 120px;
@@ -45,8 +48,8 @@
 .team-card{
     position: relative;
     /* height: 90vh; */
-    width: 90%;
-    /* padding: 10px 50px; */
+    width: 100%;    
+    padding: 10px 50px;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -56,7 +59,7 @@
     margin-bottom:150px;
     /* margin-left: 50px; */
     /* margin-right: 100px; */
-    /* column-gap:1%; */
+    column-gap:1%;
     /* row-gap: 30%; */
 
 }
@@ -67,7 +70,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 27%;
+    width: 25%;
     border-radius: 30px;
     position: relative;
 }
