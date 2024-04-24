@@ -26,7 +26,7 @@ const Team = () => {
        <div className='team-head'>
           <div className='th-main'><img src={logo} alt="" />OUR TEAM</div>
           <div className='th-p'>
-            <p><span>MEATBET</span> is fueled by a dedicated team of blockchain enthusiasts,
+            <p><span>METABET</span> is fueled by a dedicated team of blockchain enthusiasts,
                developers, designers, and industry experts. 
               With a shared passion for innovation, we've come together to
                create an unforgettable experience for fantasy enthusiasts.</p>
@@ -81,7 +81,7 @@ const Team = () => {
           <div className='team-man'>
             <div className='team-img' id='ns'><img src={mayank} alt="" /></div>
             <div className='tb'>
-            <div className='social-img'><a href="https://www.instagram.com/smayank_12/"><FaInstagram size={40}/></a><a href="https://www.linkedin.com/in/mayank-rawat-8aa02a257"><FaLinkedin size={40}/></a><a href="https://github.com/smayank1214"><FaGithub size={40}/></a></div>
+            <div className='social-img'><a href="https://www.instagram.com/neelesh_133?utm_source=qr&igsh=MTBnNmIzZW1leWd4aA=="><FaInstagram size={40}/></a><a href="https://www.linkedin.com/in/neelesh-saxena-738288257?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"><FaLinkedin size={40}/></a><a href="https://github.com/neelesh133"><FaGithub size={40}/></a></div>
               <h1>NEELESH SAXENA</h1>
               <span>FRONTEND DEVELOPER</span>
               <p>We as a team are very responsible and clear with our vision. Our mission, purpose, goals and values involved the creation of our vision. </p>

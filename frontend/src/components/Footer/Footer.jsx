@@ -20,7 +20,7 @@ const Footer = () => {
             <div><Link to='/'>HOME</Link><br /><Link to='/team'>OUR TEAM</Link><br /><Link to='/games'>BOXING</Link><br /><Link to='/'>ABOUT US</Link></div>
             }            
           </div>
-          <div className='ft-right'><span>MADE BY METABOYS</span><br /><span>POWERED BY OVER RTFIGHT</span><br /><span>METABOYS PVT LIMITED</span></div>
+          <div className='ft-right'><span>MADE BY METABOYS</span><br /><span>POWERED BY RTFIGHT</span><br /><span>METABOYS PVT LIMITED</span></div>
           
         </div>
         <div className='foot-bot'>
