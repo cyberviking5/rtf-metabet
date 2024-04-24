@@ -21,7 +21,7 @@ const Team = () => {
     <motion.div  initial={{opacity: 0}}
     animate={{opacity: 1}}
     exit={{opacity:0}} 
-    className='container' >
+    >
        <Navbar/>
        <div className='team-head'>
           <div className='th-main'><img src={logo} alt="" />OUR TEAM</div>
