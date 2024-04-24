@@ -28,7 +28,7 @@ const Footer = () => {
         </div>
         <div className='ft-right'>
           <span>MADE BY METABOYS</span><br />
-          <span>POWERED BY OVER RTFIGHT</span><br />
+          <span>POWERED BY RTFIGHT</span><br />
           <span>METABOYS PVT LIMITED</span>
         </div>
       </div>
