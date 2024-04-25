@@ -195,15 +195,15 @@ function Boxing() {
                             <span className="competition">{matches[0].competition}</span>
                             <div className="group-104">
                                 <div className="player-1">
-                                    <span className="neelesh">{matches[0].home_team}</span>
-                                    <span className="india">(INDIA)</span>
+                                    <span className="neelesh text-wrap truncate w-64">{matches[0].home_team}</span>
+                                    <span className="india">(HOME)</span>
                                 </div>
                                 <div className="player-1">
                                     <span className="vs">VS</span>
                                 </div>
                                 <div className="player-1">
-                                    <span className="neelesh">{matches[0].away_team}</span>
-                                    <span className="india">(INDIA)</span>
+                                    <span className="neelesh text-wrap truncate w-64">{matches[0].away_team}</span>
+                                    <span className="india">(AWAY)</span>
                                 </div>
                             </div>
                         </div>
