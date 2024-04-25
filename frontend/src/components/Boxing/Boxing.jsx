@@ -92,8 +92,13 @@ function Boxing() {
             const provider = new ethers.providers.Web3Provider(window.ethereum);
             await provider.send("eth_requestAccounts", []);
             const signer = provider.getSigner();
+            let number=1;
+            if(selectedPlayer==="player2")
+            {
+                number=2;
+            }
             const contract = new ethers.Contract(address2, abi2, signer);
-            const transactionResponse = await contract.enter(1,{value:ethers.utils.parseEther(num)})
+            const transactionResponse = await contract.enter(number,{value:ethers.utils.parseEther(num)})
             // const transactionResponse = await contract.settleTeamResultWon();
             await listenForTransactionMined(transactionResponse, provider);
             setsub(false)
@@ -153,6 +158,7 @@ function Boxing() {
             const firstMatch = filteredMatches.length > 0 ? [filteredMatches[0]] : [];
             setMatches(firstMatch);
             setIsLoading(false);
+            console.log(matches.length)
             // console.log(firstMatch);
         } catch (error) {
             console.error('Error fetching matches:', error);
@@ -214,7 +220,7 @@ function Boxing() {
                             </div>
                             <div className='group-98'>
                                 <input type="text" placeholder='Enter the amount' className='text_amount'></input>
-                                <button className='submit'>Submit</button>
+                                <button className='submit' onClick={enter}>Submit</button>
                             </div>
                         </div>
                     </div>
@@ -229,7 +235,7 @@ function Boxing() {
                         <ul className='list'>
                             <li>WIN: 2x the amount you pay</li>
                             <li>LOSE: No return</li>
-                            <li>MINIMUM AMOUNT to put: 100ETH</li>
+                            <li>MINIMUM AMOUNT to put: 0.01 ETH</li>
                         </ul>
                     </div>
                 </div>
