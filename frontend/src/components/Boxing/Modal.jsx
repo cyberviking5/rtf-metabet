@@ -1,7 +1,7 @@
 import React from 'react'
 import ReactDom from 'react-dom'
 import { AiOutlineClose, AiOutlineMenu } from "react-icons/ai";
-import win from '../../assets/satoru-gojo-jujutsu-2880x1800-10828.png'
+import win from '../../assets/tyson_nft'
 import './Modal.css'
 
 const MODAL_STYLES = {
