@@ -30,6 +30,8 @@ function Boxing() {
     const [isLoading, setIsLoading] = useState(false);
     const [entered, setEntered] = useState(false);
 
+    const [isOpen, setIsOpen] = useState(false)
+
     useEffect(() => {
         setIsLoading(true);
         const fetchCompetitions = async () => {
@@ -80,7 +82,7 @@ function Boxing() {
             console.log(transactionResponse)
             const number = await contract.getTokenCounter()
             setid(parseInt(number._hex));
-            // setIsOpen(true)
+            setIsOpen(true);
             toast.success("Congratulations on your reward")
         }
         catch (e) { console.log(e) }
