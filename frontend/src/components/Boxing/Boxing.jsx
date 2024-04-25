@@ -5,7 +5,7 @@ import './Boxing.css';
 import { address1, abi1 } from "../../contracts_abi_address/NFT"
 import { address, abi } from "../../contracts_abi_address/SimpleFlashLoan"
 import { ethers, providers } from "ethers";
-import {address2,abi2} from '../../contracts_abi_address/Gamble'
+import { address2, abi2 } from '../../contracts_abi_address/Gamble'
 import { toast } from 'react-toastify';
 
 const options1 = {
@@ -20,13 +20,15 @@ const options1 = {
     }
 };
 function Boxing() {
-    const [num,setnum] = useState('');
+    const [num, setnum] = useState('');
+    const [id, setid] = useState('0');
     const [competitions, setCompetitions] = useState([]);
     const [selectedCompetition, setSelectedCompetition] = useState(null);
     const [matches, setMatches] = useState([]);
-    const [num1,setnum1] = useState('');
-    const [sub,setsub]=useState(true);
+    const [num1, setnum1] = useState('');
+    const [sub, setsub] = useState(true);
     const [isLoading, setIsLoading] = useState(false);
+    const [entered, setEntered] = useState(false);
 
     useEffect(() => {
         setIsLoading(true);
@@ -52,83 +54,93 @@ function Boxing() {
 
     function listenForTransactionMined(transactionResponse, provider) {
         try {
-          console.log(`Mining ${transactionResponse.hash}...`);
-          //listen for this transaction to be finished
-          return new Promise((resolve, reject) => {
-            provider.once(transactionResponse.hash, (transactionReciept) => {
-              console.log(`Completed with ${transactionReciept.confirmations}`);
-              resolve();
+            console.log(`Mining ${transactionResponse.hash}...`);
+            //listen for this transaction to be finished
+            return new Promise((resolve, reject) => {
+                provider.once(transactionResponse.hash, (transactionReciept) => {
+                    console.log(`Completed with ${transactionReciept.confirmations}`);
+                    resolve();
+                });
             });
-          });
         } catch (e) {
-          console.log(e);
+            console.log(e);
         }
-      }
+    }
 
-    //   async function NFT_Gen()
-    //   {
-    //     try{
-    //     const provider = new ethers.providers.Web3Provider(window.ethereum);
-    //         await provider.send("eth_requestAccounts", []);
-    //         const signer = provider.getSigner();
-    //         const contract = new ethers.Contract(address1, abi1, signer);
-    //         console.log(provider)
-    //         console.log(signer)
-    //         const transactionResponse = await contract.mintNFT("https://gateway.pinata.cloud/ipfs/QmfTfVhMGjyEj7jmr8awii3UnPK4BNekXq8trLkG1ZN9WY")
-    //         await listenForTransactionMined(transactionResponse, provider);
-    //         console.log(transactionResponse)
-    //         const number=await contract.getTokenCounter()
-    //         setid(parseInt(number._hex));
-    //         setIsOpen(true)
-    //         toast.success("Congratulations on your reward")
-    //     }
-    //     catch(e){console.log(e)}
-    //   }
-
-    async function enter(){
-        try{
-          console.log(address1)
-          if (window.ethereum !== "undefined") {
-            const provider = new ethers.providers.Web3Provider(window.ethereum);
-            await provider.send("eth_requestAccounts", []);
-            const signer = provider.getSigner();
-            const contract = new ethers.Contract(address2, abi2, signer);
-            const transactionResponse = await contract.enter(1,{value:ethers.utils.parseEther(num)})
-            // const transactionResponse = await contract.settleTeamResultWon();
-            await listenForTransactionMined(transactionResponse, provider);
-            setsub(false)
-            toast.success("Entered")
-            console.log("Done");
-          }else{
-            toast.warning("please install metamask")
-          }
-        }catch(e){toast.warning("Please enter the amount");
-          console.log(e)}
-      }
-
-      async function loan() {
+    async function NFT_Gen() {
         try {
-          if (window.ethereum !== "undefined") {
             const provider = new ethers.providers.Web3Provider(window.ethereum);
             await provider.send("eth_requestAccounts", []);
             const signer = provider.getSigner();
-            const contract = new ethers.Contract(address, abi, signer);
-            const transactionResponse = await contract.fn_RequestFlashLoan(
-              "0xda9d4f9b69ac6C22e444eD9aF0CfC043b7a7f53f",
-              num1
-            );
+            const contract = new ethers.Contract(address1, abi1, signer);
+            console.log(provider)
+            console.log(signer)
+            const transactionResponse = await contract.mintNFT("https://purple-petite-dragonfly-645.mypinata.cloud/ipfs/QmaoqmQWB1AGeqq659Zt7s5GTr7itRtqX2yooyeJoVzxt7")
             await listenForTransactionMined(transactionResponse, provider);
-            toast.success("Loan processed")
-            console.log("Done");
-          }else{
-            console.log("error")
-            toast("please install metamask")
-          }
-        } catch (e) {
-          toast.warning("Enter money in natural number");
-          console.log(e);
+            console.log(transactionResponse)
+            const number = await contract.getTokenCounter()
+            setid(parseInt(number._hex));
+            // setIsOpen(true)
+            toast.success("Congratulations on your reward")
         }
-      }
+        catch (e) { console.log(e) }
+    }
+
+    async function enter() {
+        try {
+            console.log(address1)
+            if (window.ethereum !== "undefined") {
+                const provider = new ethers.providers.Web3Provider(window.ethereum);
+                await provider.send("eth_requestAccounts", []);
+                const signer = provider.getSigner();
+                let number = 1;
+                if (selectedPlayer === "player2") {
+                    console.log("here");
+                    number = 2;
+                }
+                // console.log(number)
+                // console.log(selectedPlayer)
+                const contract = new ethers.Contract(address2, abi2, signer);
+                // console.log(num1)
+                const transactionResponse = await contract.enter(number, { value: ethers.utils.parseEther(num1) })
+                // const transactionResponse = await contract.settleTeamResultWon();
+                await listenForTransactionMined(transactionResponse, provider);
+                setsub(false)
+                toast.success("Entered")
+                setEntered(true);
+                console.log("Done");
+            } else {
+                toast.warning("please install metamask")
+            }
+        } catch (e) {
+            toast.warning("Please enter the amount");
+            console.log(e)
+        }
+    }
+
+    async function loan() {
+        try {
+            if (window.ethereum !== "undefined") {
+                const provider = new ethers.providers.Web3Provider(window.ethereum);
+                await provider.send("eth_requestAccounts", []);
+                const signer = provider.getSigner();
+                const contract = new ethers.Contract(address, abi, signer);
+                const transactionResponse = await contract.fn_RequestFlashLoan(
+                    "0xda9d4f9b69ac6C22e444eD9aF0CfC043b7a7f53f",
+                    num1
+                );
+                await listenForTransactionMined(transactionResponse, provider);
+                toast.success("Loan processed")
+                console.log("Done");
+            } else {
+                console.log("error")
+                toast("please install metamask")
+            }
+        } catch (e) {
+            toast.warning("Enter money in natural number");
+            console.log(e);
+        }
+    }
 
     const fetchMatches = async (competition, country) => {
         const options2 = {
@@ -153,6 +165,7 @@ function Boxing() {
             const firstMatch = filteredMatches.length > 0 ? [filteredMatches[0]] : [];
             setMatches(firstMatch);
             setIsLoading(false);
+            console.log(matches.length)
             // console.log(firstMatch);
         } catch (error) {
             console.error('Error fetching matches:', error);
@@ -212,9 +225,22 @@ function Boxing() {
                                     </div>
                                 </div>
                             </div>
+
                             <div className='group-98'>
-                                <input type="text" placeholder='Enter the amount' className='text_amount'></input>
-                                <button className='submit'>Submit</button>
+                                {!entered ? (
+                                    <div className='enter'>
+                                        <input
+                                            type="text"
+                                            placeholder="Enter the amount"
+                                            className="text_amount"
+                                            onChange={(e) => { setnum1(e.target.value) }}
+                                        />
+                                        <button className="submit" onClick={enter}>Submit</button>
+                                    </div>
+                                ) : (
+                                    <button className="submit">Rewards</button>
+                                )}
+                                <button className='submit'>Withdraw</button>
                             </div>
                         </div>
                     </div>
@@ -229,7 +255,7 @@ function Boxing() {
                         <ul className='list'>
                             <li>WIN: 2x the amount you pay</li>
                             <li>LOSE: No return</li>
-                            <li>MINIMUM AMOUNT to put: 100ETH</li>
+                            <li>MINIMUM AMOUNT to put: 0.01 ETH</li>
                         </ul>
                     </div>
                 </div>
@@ -237,7 +263,7 @@ function Boxing() {
                     <span className='need-loan'>Need Loan ?</span>
                     <span className='loan'>Now get the flash loan instantly</span>
                     <div className='loan_amount'>
-                        <input type='text' className='group-322' placeholder='ENTER THE AMOUNT' onChange={(e)=>{setnum1(e.target.value)}}></input>
+                        <input type='text' className='group-322' placeholder='ENTER THE AMOUNT' onChange={(e) => { setnum1(e.target.value) }}></input>
                         <button className='group-33' onClick={loan}>GET LOAN</button>
                     </div>
                 </div>

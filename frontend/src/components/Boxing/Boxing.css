@@ -245,9 +245,19 @@
   color: white;
 }
 .group-98 {
-  width: 401px;
+  /* width: 401px; */
   height: 40px;
-  border-radius: 6px 0px 0px 0px;
+  border-radius: 6px 6px 6px 6px;
+  opacity: 0px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  text-align: center;
+  gap: 10px;
+}
+.enter {
+  height: 40px;
+  border-radius: 6px 6px 6px 6px;
   opacity: 0px;
   display: flex;
   justify-content: space-around;

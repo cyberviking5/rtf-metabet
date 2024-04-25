@@ -78,12 +78,17 @@
   font-weight: 900;
 }
 .panel {
-  /* background-color: black; */
+  background-color: black;
   display: flex;
   flex-direction: column;
   justify-content: center;
   background-image: url("../../assets/features.png");
   background-repeat: no-repeat;
+}
+#second{
+  background-image: url("../../assets/features.png");
+  background-size:cover;
+  background-position: center;
 }
 
 #first {
