@@ -1,7 +1,7 @@
 import React from 'react'
 import ReactDom from 'react-dom'
 import { AiOutlineClose, AiOutlineMenu } from "react-icons/ai";
-import win from '../../assets/tyson_nft'
+import win from '../../assets/tyson_nft.jpeg'
 import './Modal.css'
 
 const MODAL_STYLES = {
