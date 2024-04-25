@@ -82,12 +82,11 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  background-image: url("../../assets/features.png");
   background-repeat: no-repeat;
 }
-#second{
+#second {
   background-image: url("../../assets/features.png");
-  background-size:cover;
+  background-size: cover;
   background-position: center;
 }
 
