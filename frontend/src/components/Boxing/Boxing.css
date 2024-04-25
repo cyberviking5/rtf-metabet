@@ -360,6 +360,11 @@
   line-height: 36.69px;
   text-align: left;
 }
+
+.time{
+  font-weight: 800;
+}
+
 .loan {
   /* width: 247px; */
   height: 35px;
@@ -429,7 +434,7 @@
   gap: 10px;
   border-radius: 6px;
   opacity: 0px;
-  background: rgba(2, 85, 174, 1);
+  background: #4EAE02;
   outline: none;
   text-align: center;
 }

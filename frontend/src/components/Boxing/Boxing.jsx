@@ -204,6 +204,7 @@ function Boxing() {
                                 </div>
                                 <div className="player-1">
                                     <span className="vs">VS</span>
+                                    <span className='time'>{matches[0].time}</span>
                                 </div>
                                 <div className="player-1">
                                     <span className="neelesh text-wrap truncate w-64">{matches[0].away_team}</span>
@@ -257,7 +258,7 @@ function Boxing() {
                     <span className='rules'>RULES</span>
                     <div className='group-44'>
                         <ul className='list'>
-                            <li>WIN: 2x the amount you pay</li>
+                            <li>WIN upto 2x the amount you pay</li>
                             <li>LOSE: No return</li>
                             <li>MINIMUM AMOUNT to put: 0.01 ETH</li>
                         </ul>
