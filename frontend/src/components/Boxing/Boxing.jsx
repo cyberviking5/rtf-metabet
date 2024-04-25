@@ -281,7 +281,7 @@ function Boxing() {
                                 ) : (
                                     <button className="submit" onClick={Withdraw}>Withdraw</button>
                                 )}
-                                <button className="submit" onClick={winner}>setWinner</button>
+                                {/* <button className="submit" onClick={winner}>setWinner</button> */}
                                 <button className='submit' onClick={async() => {await NFT_Gen()}}>Rewards</button>
                             </div>
                         </div>

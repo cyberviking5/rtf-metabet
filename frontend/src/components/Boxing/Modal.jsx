@@ -45,7 +45,7 @@ export default function Modal({ token_id,open, children, onClose }) {
             </div>
         <h1 className='mod-h1'>YOUR REWARDS</h1>
         <img src={win} className='h-[240px] w-[360px]' ></img>
-        <p className='modP'>TOKEN ADDRESS : 0xBe7aADAc5C8553eDB40a94d699B7eEcFa06945Be </p>
+        <p className='modP'>TOKEN ADDRESS : 0xB537B14F71eBb64A5eceaAb46143803A9D7cAa4f </p>
         <p className='modP'>TOKEN ID: {token_id}</p>
       </div>
     </>,
