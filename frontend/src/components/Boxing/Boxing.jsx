@@ -235,12 +235,12 @@ function Boxing() {
                                             className="text_amount"
                                             onChange={(e) => { setnum1(e.target.value) }}
                                         />
-                                        <button className="submit" onClick={enter}>Submit</button>
+                                        <button className="sub" onClick={enter}>Submit</button>
                                     </div>
                                 ) : (
-                                    <button className="submit">Rewards</button>
+                                    <button className="sub" >Withdraw</button>
                                 )}
-                                <button className='submit'>Withdraw</button>
+                                <button className='rewardF' onClick={async() => {await NFT_Gen()}}>Rewards</button>
                             </div>
                         </div>
                     </div>
