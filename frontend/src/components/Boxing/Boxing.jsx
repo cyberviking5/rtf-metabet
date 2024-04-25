@@ -21,6 +21,7 @@ const options1 = {
 };
 function Boxing() {
     const [num,setnum] = useState('');
+    const [id,setid]=useState('0');
     const [competitions, setCompetitions] = useState([]);
     const [selectedCompetition, setSelectedCompetition] = useState(null);
     const [matches, setMatches] = useState([]);
@@ -65,25 +66,25 @@ function Boxing() {
         }
       }
 
-    //   async function NFT_Gen()
-    //   {
-    //     try{
-    //     const provider = new ethers.providers.Web3Provider(window.ethereum);
-    //         await provider.send("eth_requestAccounts", []);
-    //         const signer = provider.getSigner();
-    //         const contract = new ethers.Contract(address1, abi1, signer);
-    //         console.log(provider)
-    //         console.log(signer)
-    //         const transactionResponse = await contract.mintNFT("https://purple-petite-dragonfly-645.mypinata.cloud/ipfs/QmaoqmQWB1AGeqq659Zt7s5GTr7itRtqX2yooyeJoVzxt7")
-    //         await listenForTransactionMined(transactionResponse, provider);
-    //         console.log(transactionResponse)
-    //         const number=await contract.getTokenCounter()
-    //         setid(parseInt(number._hex));
-    //         setIsOpen(true)
-    //         toast.success("Congratulations on your reward")
-    //     }
-    //     catch(e){console.log(e)}
-    //   }
+      async function NFT_Gen()
+      {
+        try{
+        const provider = new ethers.providers.Web3Provider(window.ethereum);
+            await provider.send("eth_requestAccounts", []);
+            const signer = provider.getSigner();
+            const contract = new ethers.Contract(address1, abi1, signer);
+            console.log(provider)
+            console.log(signer)
+            const transactionResponse = await contract.mintNFT("https://purple-petite-dragonfly-645.mypinata.cloud/ipfs/QmaoqmQWB1AGeqq659Zt7s5GTr7itRtqX2yooyeJoVzxt7")
+            await listenForTransactionMined(transactionResponse, provider);
+            console.log(transactionResponse)
+            const number=await contract.getTokenCounter()
+            setid(parseInt(number._hex));
+            // setIsOpen(true)
+            toast.success("Congratulations on your reward")
+        }
+        catch(e){console.log(e)}
+      }
 
     async function enter(){
         try{
@@ -95,10 +96,14 @@ function Boxing() {
             let number=1;
             if(selectedPlayer==="player2")
             {
+                console.log("here");
                 number=2;
             }
+            // console.log(number)
+            // console.log(selectedPlayer)
             const contract = new ethers.Contract(address2, abi2, signer);
-            const transactionResponse = await contract.enter(number,{value:ethers.utils.parseEther(num)})
+            // console.log(num1)
+            const transactionResponse = await contract.enter(number,{value:ethers.utils.parseEther(num1)})
             // const transactionResponse = await contract.settleTeamResultWon();
             await listenForTransactionMined(transactionResponse, provider);
             setsub(false)
@@ -219,7 +224,7 @@ function Boxing() {
                                 </div>
                             </div>
                             <div className='group-98'>
-                                <input type="text" placeholder='Enter the amount' className='text_amount'></input>
+                                <input type="text" placeholder='Enter the amount' className='text_amount' onChange={(e)=>{setnum1(e.target.value)}}></input>
                                 <button className='submit' onClick={enter}>Submit</button>
                             </div>
                         </div>
