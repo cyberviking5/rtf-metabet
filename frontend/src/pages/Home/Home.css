@@ -81,7 +81,7 @@
   /* background-color: black; */
   display: flex;
   flex-direction: column;
-  justify-content: ;
+  justify-content: center;
   background-image: url("../../assets/features.png");
   background-repeat: no-repeat;
 }
