@@ -7,6 +7,7 @@ import { address, abi } from "../../contracts_abi_address/SimpleFlashLoan"
 import { ethers, providers } from "ethers";
 import { address2, abi2 } from '../../contracts_abi_address/Gamble'
 import { toast } from 'react-toastify';
+import Modal from './Modal'
 
 const options1 = {
     method: 'GET',
@@ -187,6 +188,7 @@ function Boxing() {
 
     return (
         <div className='apex'>
+        <Modal token_id={id} open={isOpen} onClose={() => setIsOpen(false)}></Modal>   
             <div className="group-32">
                 {isLoading && <CircularProgress className='circle' />}
                 {matches.length > 0 ? (
