@@ -120,6 +120,42 @@ function Boxing() {
             console.log(e)
         }
     }
+    async function Withdraw() {
+        try {
+            console.log(address1)
+            if (window.ethereum !== "undefined") {
+                const provider = new ethers.providers.Web3Provider(window.ethereum);
+                await provider.send("eth_requestAccounts", []);
+                const signer = provider.getSigner();
+                const contract = new ethers.Contract(address2, abi2, signer);
+                const transactionResponse = await contract.settleTeamResultWon();
+                await listenForTransactionMined(transactionResponse, provider);
+            } else {
+                toast.warning("please install metamask")
+            }
+        } catch (e) {
+            toast.warning("Please enter the amount");
+            console.log(e)
+        }
+    }
+    async function winner() {
+        try {
+            console.log(address1)
+            if (window.ethereum !== "undefined") {
+                const provider = new ethers.providers.Web3Provider(window.ethereum);
+                await provider.send("eth_requestAccounts", []);
+                const signer = provider.getSigner();
+                const contract = new ethers.Contract(address2, abi2, signer);
+                const transactionResponse = await contract.setWinner(1);
+                await listenForTransactionMined(transactionResponse, provider);
+            } else {
+                toast.warning("please install metamask")
+            }
+        } catch (e) {
+            toast.warning("Please enter the amount");
+            console.log(e)
+        }
+    }
 
     async function loan() {
         try {
@@ -243,9 +279,10 @@ function Boxing() {
                                         <button className="sub" onClick={enter}>Submit</button>
                                     </div>
                                 ) : (
-                                    <button className="sub" >Withdraw</button>
+                                    <button className="submit" onClick={Withdraw}>Withdraw</button>
                                 )}
-                                <button className='rewardF' onClick={async() => {await NFT_Gen()}}>Rewards</button>
+                                <button className="submit" onClick={winner}>setWinner</button>
+                                <button className='submit' onClick={async() => {await NFT_Gen()}}>Rewards</button>
                             </div>
                         </div>
                     </div>
