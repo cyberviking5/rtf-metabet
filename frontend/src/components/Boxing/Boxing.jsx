@@ -7,6 +7,7 @@ import { address, abi } from "../../contracts_abi_address/SimpleFlashLoan"
 import { ethers, providers } from "ethers";
 import { address2, abi2 } from '../../contracts_abi_address/Gamble'
 import { toast } from 'react-toastify';
+import Modal from './Modal'
 
 const options1 = {
     method: 'GET',
@@ -29,6 +30,8 @@ function Boxing() {
     const [sub, setsub] = useState(true);
     const [isLoading, setIsLoading] = useState(false);
     const [entered, setEntered] = useState(false);
+
+    const [isOpen, setIsOpen] = useState(false)
 
     useEffect(() => {
         setIsLoading(true);
@@ -80,7 +83,7 @@ function Boxing() {
             console.log(transactionResponse)
             const number = await contract.getTokenCounter()
             setid(parseInt(number._hex));
-            // setIsOpen(true)
+            setIsOpen(true);
             toast.success("Congratulations on your reward")
         }
         catch (e) { console.log(e) }
@@ -221,6 +224,7 @@ function Boxing() {
 
     return (
         <div className='apex'>
+        <Modal token_id={id} open={isOpen} onClose={() => setIsOpen(false)}></Modal>   
             <div className="group-32">
                 {isLoading && <CircularProgress className='circle' />}
                 {matches.length > 0 ? (
@@ -231,15 +235,16 @@ function Boxing() {
                             <span className="competition">{matches[0].competition}</span>
                             <div className="group-104">
                                 <div className="player-1">
-                                    <span className="neelesh">{matches[0].home_team}</span>
-                                    <span className="india">(INDIA)</span>
+                                    <span className="neelesh text-wrap truncate w-64">{matches[0].home_team}</span>
+                                    <span className="india">(HOME)</span>
                                 </div>
                                 <div className="player-1">
                                     <span className="vs">VS</span>
+                                    <span className='time'>{matches[0].time}</span>
                                 </div>
                                 <div className="player-1">
-                                    <span className="neelesh">{matches[0].away_team}</span>
-                                    <span className="india">(INDIA)</span>
+                                    <span className="neelesh text-wrap truncate w-64">{matches[0].away_team}</span>
+                                    <span className="india">(AWAY)</span>
                                 </div>
                             </div>
                         </div>
@@ -271,7 +276,7 @@ function Boxing() {
                                             className="text_amount"
                                             onChange={(e) => { setnum1(e.target.value) }}
                                         />
-                                        <button className="submit" onClick={enter}>Submit</button>
+                                        <button className="sub" onClick={enter}>Submit</button>
                                     </div>
                                 ) : (
                                     <button className="submit" onClick={Withdraw}>Withdraw</button>
@@ -290,7 +295,7 @@ function Boxing() {
                     <span className='rules'>RULES</span>
                     <div className='group-44'>
                         <ul className='list'>
-                            <li>WIN: 2x the amount you pay</li>
+                            <li>WIN upto 2x the amount you pay</li>
                             <li>LOSE: No return</li>
                             <li>MINIMUM AMOUNT to put: 0.01 ETH</li>
                         </ul>
